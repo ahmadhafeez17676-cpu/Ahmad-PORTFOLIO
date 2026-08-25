@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
-const Contact = require('./models/Contact');
+const Contact = require('../models/Contact');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static frontend files
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, '..')));
 
 // ---- Start server FIRST (don't wait for MongoDB) ----
 if (process.env.NODE_ENV !== 'production') {
@@ -76,5 +76,5 @@ app.get('/api/messages', async (req, res) => {
 
 // ---- Serve Frontend (catch-all) ----
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
