@@ -17,10 +17,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname)));
 
 // ---- Start server FIRST (don't wait for MongoDB) ----
-app.listen(PORT, () => {
-    console.log(`\n🚀  Portfolio server running at: http://localhost:${PORT}`);
-    console.log(`📋  View messages at:             http://localhost:${PORT}/api/messages\n`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`\n🚀  Portfolio server running at: http://localhost:${PORT}`);
+        console.log(`📋  View messages at:             http://localhost:${PORT}/api/messages\n`);
+    });
+}
+module.exports = app;
 
 // ---- MongoDB Connection (non-blocking) ----
 let dbConnected = false;
