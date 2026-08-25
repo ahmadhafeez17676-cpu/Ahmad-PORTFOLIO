@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static frontend files
-app.use(express.static(path.join(__dirname, '..')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // ---- Start server FIRST (don't wait for MongoDB) ----
 if (process.env.NODE_ENV !== 'production') {
@@ -76,5 +76,5 @@ app.get('/api/messages', async (req, res) => {
 
 // ---- Serve Frontend (catch-all) ----
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
