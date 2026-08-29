@@ -14,15 +14,33 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scrollProgressBar"></div>
+
+    <!-- Glowing Cursor Trail -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="cursor-tail" id="cursorTail"></div>
+    <div class="cursor-beam" id="cursorBeam"></div>
+
+    <!-- Global Animated Background -->
+    <div class="global-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+        <div class="glow-orb orb-4"></div>
+        <div class="glow-orb orb-5"></div>
+    </div>
 
     <!-- ===================== NAVBAR ===================== -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
-                <span class="logo-box">AH</span>
+                <span class="logo-box"><img src="PROFIL.jpg" alt="Ahmad Hafeez" class="logo-avatar"></span>
                 <span class="logo-text">Ahmad Hafeez</span>
             </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -52,7 +70,7 @@
                     <span class="greeting-dot"></span>Hi, I'm Ahmad Hafeez
                 </div>
                 <h1 class="hero-headline">
-                    I Build <span class="highlight">Full-Stack</span><br>
+                    I Build <span class="highlight type-text" id="typeText"></span><br>
                     Digital Solutions<br>
                     That <span class="highlight-2">Drive Impact.</span>
                 </h1>
@@ -62,8 +80,8 @@
                 </p>
                 <div class="hero-ctas">
                     <a href="#work" class="btn-primary">View My Work <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#" class="btn-outline" id="downloadCV" onclick="window.print(); return false;">
-                        <i class="fa-solid fa-download"></i> Download CV
+                    <a href="https://my-cv-liart-rho.vercel.app/" target="_blank" class="btn-outline" id="downloadCV">
+                        <i class=""></i> VIEW CV
                     </a>
                 </div>
                 <div class="hero-badges">
@@ -80,7 +98,7 @@
                 <div class="hero-photo-wrap">
                     <div class="photo-ring-outer"></div>
                     <div class="photo-ring-inner"></div>
-                    <img src="profile.jpg" alt="Ahmad Hafeez" class="hero-photo">
+                    <img src="PROFIL.jpg" alt="Ahmad Hafeez" class="hero-photo">
                     <!-- Floating cards -->
                     <div class="float-card card-mern">
                         <i class="fa-solid fa-code"></i>
@@ -122,93 +140,86 @@
             <div class="section-head reveal">
                 <span class="section-tag"><i class="fa-solid fa-briefcase"></i> Featured Work</span>
                 <h2 class="section-title">Projects I've <span class="highlight">Built</span></h2>
-                <a href="https://github.com/ahmadhafeez76" target="_blank" class="view-all">View All Projects <i
-                        class="fa-solid fa-arrow-right"></i></a>
+                <button id="showProjectsBtn" class="view-all"
+                    style="background:transparent; border:none; color:var(--text-grey); cursor:pointer;">View All
+                    Projects <i class="fa-solid fa-arrow-down"></i></button>
             </div>
 
             <div class="projects-grid">
 
                 <!-- Project 1 — MyDoctor -->
-                <div class="project-card reveal">
-                    <div class="pc-image">
-                        <div class="pc-img-placeholder mydoctor">
-                            <i class="fa-solid fa-stethoscope pc-icon"></i>
-                            <div class="pc-glow"></div>
+                <div class="parallax-wrapper">
+                    <div class="project-card reveal">
+                        <div class="pc-image">
+                            <img src="mydoctor-preview.jpg" alt="MyDoctor App Screenshot" class="pc-screenshot">
+                            <div class="pc-category">Healthcare Platform</div>
                         </div>
-                        <div class="pc-category">Healthcare Platform</div>
-                    </div>
-                    <div class="pc-content">
-                        <h3 class="pc-title">MyDoctor</h3>
-                        <p class="pc-desc">A responsive healthcare platform for managing doctors, appointments and
-                            patient interactions with secure JWT authentication.</p>
-                        <div class="pc-tags">
-                            <span>React.js</span><span>Node.js</span><span>MongoDB</span><span>JWT</span>
-                        </div>
-                        <div class="pc-actions">
-                            <a href="https://mydocter.vercel.app/" target="_blank" class="pc-btn live">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/ahmadhafeez76" target="_blank" class="pc-btn repo">
-                                <i class="fa-brands fa-github"></i> Repository
-                            </a>
+                        <div class="pc-content">
+                            <h3 class="pc-title">MyDoctor</h3>
+                            <p class="pc-desc">A responsive healthcare platform for managing doctors, appointments and
+                                patient interactions with secure JWT authentication.</p>
+                            <div class="pc-tags">
+                                <span>React.js</span><span>Node.js</span><span>MongoDB</span><span>JWT</span>
+                            </div>
+                            <div class="pc-actions">
+                                <a href="https://mydocter.vercel.app/" target="_blank" class="pc-btn live">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                </a>
+
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2 — AdFlow Pro -->
-                <div class="project-card reveal">
-                    <div class="pc-image">
-                        <div class="pc-img-placeholder adflow">
-                            <i class="fa-solid fa-bullhorn pc-icon"></i>
-                            <div class="pc-glow"></div>
+                <div class="parallax-wrapper">
+                    <div class="project-card reveal">
+                        <div class="pc-image">
+                            <img src="adflow-preview.jpg" alt="AdFlow Pro App Screenshot" class="pc-screenshot">
+                            <div class="pc-category">Ad Marketplace</div>
                         </div>
-                        <div class="pc-category">Ad Marketplace</div>
-                    </div>
-                    <div class="pc-content">
-                        <h3 class="pc-title">AdFlow Pro</h3>
-                        <p class="pc-desc">Modern digital advertising and marketplace platform with interactive
-                            features, secure auth, and reusable React component architecture.</p>
-                        <div class="pc-tags">
-                            <span>React.js</span><span>Express.js</span><span>MongoDB</span><span>REST API</span>
-                        </div>
-                        <div class="pc-actions">
-                            <a href="https://midterm-three-rho.vercel.app/" target="_blank" class="pc-btn live">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/ahmadhafeez76" target="_blank" class="pc-btn repo">
-                                <i class="fa-brands fa-github"></i> Repository
-                            </a>
+                        <div class="pc-content">
+                            <h3 class="pc-title">AdFlow Pro</h3>
+                            <p class="pc-desc">Modern digital advertising and marketplace platform with interactive
+                                features, secure auth, and reusable React component architecture.</p>
+                            <div class="pc-tags">
+                                <span>React.js</span><span>Express.js</span><span>MongoDB</span><span>REST
+                                    API</span>
+                            </div>
+                            <div class="pc-actions">
+                                <a href="https://midterm-three-rho.vercel.app/" target="_blank" class="pc-btn live">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                </a>
+
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 3 — ElectiShield -->
-                <div class="project-card reveal">
-                    <div class="pc-image">
-                        <div class="pc-img-placeholder electi">
-                            <i class="fa-solid fa-shield-halved pc-icon"></i>
-                            <div class="pc-glow"></div>
+                <div class="parallax-wrapper">
+                    <div class="project-card reveal">
+                        <div class="pc-image">
+                            <img src="electishield-preview.jpg" alt="ElectiShield App Screenshot" class="pc-screenshot">
+                            <div class="pc-category">Election System</div>
                         </div>
-                        <div class="pc-category">Election System</div>
-                    </div>
-                    <div class="pc-content">
-                        <h3 class="pc-title">ElectiShield</h3>
-                        <p class="pc-desc">Secure web-based election management platform with protected routes,
-                            real-time data management, and clean scalable code architecture.</p>
-                        <div class="pc-tags">
-                            <span>React.js</span><span>Node.js</span><span>MongoDB</span><span>Security</span>
-                        </div>
-                        <div class="pc-actions">
-                            <a href="https://electionsys-three.vercel.app/" target="_blank" class="pc-btn live">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/ahmadhafeez76" target="_blank" class="pc-btn repo">
-                                <i class="fa-brands fa-github"></i> Repository
-                            </a>
+                        <div class="pc-content">
+                            <h3 class="pc-title">ElectiShield</h3>
+                            <p class="pc-desc">Secure web-based election management platform with protected
+                                routes,
+                                real-time data management, and clean scalable code architecture.</p>
+                            <div class="pc-tags">
+                                <span>React.js</span><span>Node.js</span><span>MongoDB</span><span>Security</span>
+                            </div>
+                            <div class="pc-actions">
+                                <a href="https://electionsys-three.vercel.app/" target="_blank" class="pc-btn live">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                </a>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -416,7 +427,7 @@
                     <div class="about-social">
                         <a href="https://www.linkedin.com/in/ahmadhafeez76/" target="_blank" class="social-btn"><i
                                 class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://github.com/ahmadhafeez76" target="_blank" class="social-btn"><i
+                        <a href="https://github.com/ahmadhafeez17676-cpu" target="_blank" class="social-btn"><i
                                 class="fa-brands fa-github"></i></a>
                         <a href="mailto:ahmadhafeez17676@gmail.com" class="social-btn"><i
                                 class="fa-solid fa-envelope"></i></a>
@@ -512,6 +523,9 @@
 
                 <div class="contact-right reveal reveal-right">
                     <form class="contact-form" id="contactForm">
+                        <!-- Web3Forms access key - replace YOUR_ACCESS_KEY with key from web3forms.com -->
+                        <input type="hidden" name="access_key" value="e823ac20-3d9c-4732-ad77-4af790378ad2">
+                        <input type="hidden" name="subject" value="📩 New Portfolio Contact — Ahmad Hafeez">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Your Name</label>
@@ -525,26 +539,28 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="projectType">Project Type</label>
-                                <select id="projectType" name="projectType">
-                                    <option value="">Select Project Type</option>
-                                    <option value="Full-Stack Web App">Full-Stack Web App</option>
-                                    <option value="MERN Stack Project">MERN Stack Project</option>
-                                    <option value="REST API Development">REST API Development</option>
-                                    <option value="Portfolio Website">Portfolio Website</option>
-                                    <option value="E-Commerce Platform">E-Commerce Platform</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                                <input type="text" id="projectType" name="projectType"
+                                    placeholder="Select or type project type" list="projectTypes" required>
+                                <datalist id="projectTypes">
+                                    <option value="Full-Stack Web App">
+                                    <option value="MERN Stack Project">
+                                    <option value="REST API Development">
+                                    <option value="Portfolio Website">
+                                    <option value="E-Commerce Platform">
+                                    <option value="Other">
+                                </datalist>
                             </div>
                             <div class="form-group">
                                 <label for="budget">Budget Range</label>
-                                <select id="budget" name="budget">
-                                    <option value="">Select Budget</option>
-                                    <option value="$500 - $1,000">$500 – $1,000</option>
-                                    <option value="$1,000 - $3,000">$1,000 – $3,000</option>
-                                    <option value="$3,000 - $5,000">$3,000 – $5,000</option>
-                                    <option value="$5,000+">$5,000+</option>
-                                    <option value="Discuss">Let's Discuss</option>
-                                </select>
+                                <input type="text" id="budget" name="budget" placeholder="Select or type budget"
+                                    list="budgetOptions" required>
+                                <datalist id="budgetOptions">
+                                    <option value="$500 - $1,000">
+                                    <option value="$1,000 - $3,000">
+                                    <option value="$3,000 - $5,000">
+                                    <option value="$5,000+">
+                                    <option value="Let's Discuss">
+                                </datalist>
                             </div>
                         </div>
                         <div class="form-group full-width">
@@ -625,6 +641,37 @@
     <div class="toast" id="toast">
         <span class="toast-icon"></span>
         <span class="toast-msg"></span>
+    </div>
+
+    <!-- Projects Overlay (hidden by default) -->
+    <div id="projectsOverlay" class="overlay hidden">
+        <div class="overlay-content">
+            <button class="overlay-close" id="closeProjectsBtn">&times;</button>
+            <h2 class="overlay-title">All Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <a href="https://mydocter.vercel.app/" target="_blank" class="project-card"
+                    style="text-decoration:none;">
+                    <img src="mydoctor-preview.jpg" alt="MyDoctor">
+                    <h3>MyDoctor</h3>
+                    <p>Full-stack tele-health platform.</p>
+                </a>
+                <!-- Project 2 -->
+                <a href="https://midterm-three-rho.vercel.app/" target="_blank" class="project-card"
+                    style="text-decoration:none;">
+                    <img src="adflow-preview.jpg" alt="AdFlow Pro">
+                    <h3>AdFlow Pro</h3>
+                    <p>Ad-management dashboard with analytics.</p>
+                </a>
+                <!-- Project 3 -->
+                <a href="https://electionsys-three.vercel.app/" target="_blank" class="project-card"
+                    style="text-decoration:none;">
+                    <img src="electishield-preview.jpg" alt="ElectiShield">
+                    <h3>ElectiShield</h3>
+                    <p>IoT-enabled electrical safety monitoring.</p>
+                </a>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
